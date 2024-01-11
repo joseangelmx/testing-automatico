@@ -535,11 +535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Josea\\source\\repos\\testing-auto\\testing-auto\\testing-auto.csproj",
+      "projectUniqueName": "C:\\Users\\Josea\\Documents\\v10project\\testing-automatico\\testing-auto.csproj",
       "projectName": "testing-auto",
-      "projectPath": "C:\\Users\\Josea\\source\\repos\\testing-auto\\testing-auto\\testing-auto.csproj",
+      "projectPath": "C:\\Users\\Josea\\Documents\\v10project\\testing-automatico\\testing-auto.csproj",
       "packagesPath": "C:\\Users\\Josea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Josea\\source\\repos\\testing-auto\\testing-auto\\obj\\",
+      "outputPath": "C:\\Users\\Josea\\Documents\\v10project\\testing-automatico\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Josea\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -605,7 +605,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },

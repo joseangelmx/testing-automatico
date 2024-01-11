@@ -11,7 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
-class Program
+public class Program
 {
     static Registro[] registros = new Registro[20];
     static int contador = 0;
@@ -32,9 +32,9 @@ class Program
         driver.Manage().Window.Maximize();
         IWebElement html = driver.FindElement(By.TagName("html"));
         IWebElement email = driver.FindElement(By.Id("emailLog"));
-        email.SendKeys("joseangel@gmail.com");
+        email.SendKeys("admin@luxottica.com");
         IWebElement passworrd = driver.FindElement(By.Id("passwordLog"));
-        passworrd.SendKeys("26091999aA*");
+        passworrd.SendKeys("3eJ0eMN@*wl9+");
         IWebElement login = driver.FindElement(By.Id("login-button"));
         login.Click();
         System.Threading.Thread.Sleep(4000);
@@ -43,7 +43,6 @@ class Program
         System.Threading.Thread.Sleep(1000);
 
         IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-        long scrollHeight = (long)js.ExecuteScript("return document.body.scrollHeight;");
         string divertCode = "";
         string zoneDivert = "";
 
@@ -52,7 +51,7 @@ class Program
 
             IWebElement confirmMessage = driver.FindElement(By.Id("confirmMessage"));
             IWebElement zone = driver.FindElement(By.Id("responseVirtualTote"));
-            js.ExecuteScript("window.scrollBy(0, 400);");
+            js.ExecuteScript("window.scrollBy(0, 420);");
             IWebElement responseDivertCode = driver.FindElement(By.Id("responseDivertCode"));
             string toteLpnCode = GenerateRandomCode();
             IWebElement camId = driver.FindElement(By.Id("camIdNewTote"));
@@ -66,10 +65,12 @@ class Program
             IWebElement newToteButton = driver.FindElement(By.Id("newToteButton"));
             newToteButton.Click();
             System.Threading.Thread.Sleep(3000);
-            string resultado = "";
-            for (int j = 4; j <= 9; j++)
+
+            for (int j = 4; j <= 8; j++)
             {
                 LimpiarCamposDivert();
+                js.ExecuteScript("window.scrollBy(0, 90);");
+                System.Threading.Thread.Sleep(500);
                 string camIdValue = $"Cam{j:00}";
                 IWebElement zoneDivertElement = driver.FindElement(By.Id("responseZoneId"));
                 // Ingresa el valor actual de CamId
@@ -81,10 +82,12 @@ class Program
                 toteLpnDivert.SendKeys(toteLpnCode);
                 IWebElement divert = driver.FindElement(By.Id("divertButton"));
                 divert.Click();
-                MoveConveyor(camIdValue + " TOTE LPN:"+ toteLpnCode);
+                MoveConveyor(camIdValue + " TOTE LPN:" + toteLpnCode);
                 System.Threading.Thread.Sleep(3000);
                 zoneDivert = zoneDivertElement.Text;
                 divertCode = responseDivertCode.Text;
+                js.ExecuteScript("window.scrollBy(0, -90);");
+                System.Threading.Thread.Sleep(500);
                 if (divertCode == "2")
                 {
                     IWebElement camIdConfirm = driver.FindElement(By.Id("camIdDivertConfirm"));
@@ -97,10 +100,10 @@ class Program
                     confirm.Click();
                     Console.Clear();
                     objectPosition = 0;
-                    Console.WriteLine("TOTE LPN: " + toteLpnCode + " DIVERT IN "+ camIdValue);
+                    Console.WriteLine("TOTE LPN: " + toteLpnCode + " DIVERT IN " + camIdValue);
                     AgregarRegistro(toteLpnCode, camIdValue, "DIVERT", zoneDivert);
                     System.Threading.Thread.Sleep(3000);
-
+                    js.ExecuteScript("window.scrollBy(0, -490);");
                     break;
                 }
             }
@@ -114,10 +117,14 @@ class Program
                 trackingIdBorder.SendKeys("1");
                 IWebElement toteLpnBorder = driver.FindElement(By.Id("toteLpnDivertBorder"));
                 toteLpnBorder.SendKeys(toteLpnCode);
+                js.ExecuteScript("window.scrollBy(0, 80);");
+                System.Threading.Thread.Sleep(500);
                 IWebElement border = driver.FindElement(By.Id("borderPickingButton"));
                 border.Click();
+                
                 System.Threading.Thread.Sleep(4000);
-                js.ExecuteScript("window.scrollBy(0, 400);");
+                js.ExecuteScript("window.scrollBy(0, 700);");
+                System.Threading.Thread.Sleep(500);
                 IWebElement camIdTransfer = driver.FindElement(By.Id("camIdDivertTransfer"));
                 camIdTransfer.SendKeys("Cam02");
                 IWebElement trackingIdTransfer = driver.FindElement(By.Id("trackingIdDivertTransfer"));
@@ -125,13 +132,15 @@ class Program
                 IWebElement toteLpnTransfer = driver.FindElement(By.Id("toteLpnDivertTransfer"));
                 toteLpnTransfer.SendKeys(toteLpnCode);
                 IWebElement transfer = driver.FindElement(By.Id("transferInboundButton"));
+                
+                System.Threading.Thread.Sleep(500);
                 transfer.Click();
                 Console.Clear();
                 objectPosition = 0;
                 Console.WriteLine("TOTE LPN: "+ toteLpnCode +" LINE COUNT");
                 AgregarRegistro(toteLpnCode,"", "Line Count", zoneDivert);
                 System.Threading.Thread.Sleep(3000);
-                js.ExecuteScript("window.scrollBy(0, -800);");
+                js.ExecuteScript("window.scrollBy(0, -900);");
 
             }
 

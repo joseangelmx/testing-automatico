@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oqxb+b+dOLe07vMtmx4bf5EmROoFqpzksW8ENQprzFxz3shSd3VhZgW9pcHvP7LL4L9mF1bx54iXk0vdpbHErg==",
+  "dgSpecHash": "4jkSCaDNCkT4qS3qedCPhk000LgSGUzUtq8ghEDFJIlix5fieB4hErHaB56TfHPzKg+DemUdA2Nk/KBXWI4WHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Josea\\source\\repos\\testing-auto\\testing-auto\\testing-auto.csproj",
+  "projectFilePath": "C:\\Users\\Josea\\Documents\\v10project\\testing-automatico\\testing-auto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Josea\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\Josea\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
